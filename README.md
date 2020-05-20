@@ -42,3 +42,12 @@ And n = 801385653117583579  :  Prime number larger than 2^56 = 72057594037927940
 #### Chunk Weight of i<sup>th</sup> chunk = 1 + log<sub>10</sub>(Ch<sub>i</sub>f<sup>D</sup>)
 
 Where Ch<sub>i</sub>f<sup>D</sup> is the chunk frequency of that i<sup>th</sup> chunk
+
+- The value of a chunk is determined by the frequency of the chunk in other documents as well. More frequent the chunk is, less valuable it become. To determine the value of a chunk, the rolling hashes of a chunk is checked with the rolling hashes of other documents in the database and its doucument frequency is calculated just like the chunk frequency is calculated.
+Docuement frequency is represented as d<sup>f</sup>Ch
+- Using the document frequency, the document weight is calculated. The document weight is know as the informativeness fo the document. As mentioned above, if the document frequency of a chunk is high, then it is less valuable. The less frequent chunks are more interesting for fingerprinting documents. The document weight can be canculated as follows.
+
+#### id<sup>f</sup>Ch<sub>i</sub> = log<sub>10</sub>(N/d<sup>f</sup>Ch<sub>i</sub>)
+Where N is the number of documents the chunk was checked against for calculating the document frequency. For ease of demonstration, we are generating the N documents withing the code itself using the randStr() function on the top of the source code. In real life these documents would be fetched from a database. 
+
+NB : In our case we are generating a 1000 data objects using this function and using it to calculate the document frequency. This have a few problems. The results may vary with each run for the same input document. A weird looking edge case will occur as well because 3-4 extra documents were manually added to the set for testing purposes. This will cause a minor difference in the last similary percentage calculated. In one of the test runs which I made, both D1 and D2 were the same. Due to the above mentioned extra documents the similary score was 100.000000003%. This can be fixed by removing the extra datasets. I've left it there for ease of testing.
