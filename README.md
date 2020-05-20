@@ -62,3 +62,5 @@ Where x is the document number (that is 1 and 2 in D1 and D2 respectively)
 
 
 - All these calculations were carried out to find the similarity between the documents D1 and D2. The equation mentioned below returns the similarity in the scale from 0 to 100 percentage. 
+
+<a href="https://www.codecogs.com/eqnedit.php?latex=Similarity(D1,&space;D2)&space;=&space;\frac{\sum_{i&space;=&space;0}^{n&space;-&space;1&space;}{W^{D}}_{1}C_{i}*{W^{D}}_{2}C_{i}}{\sqrt{({W^{D}}_{1}C_{i})^2}*\sqrt{({W^{D}}_{1}C_{i})^2}}*100" target="_blank"><img src="https://latex.codecogs.com/gif.latex?Similarity(D1,&space;D2)&space;=&space;\frac{\sum_{i&space;=&space;0}^{n&space;-&space;1&space;}{W^{D}}_{1}C_{i}*{W^{D}}_{2}C_{i}}{\sqrt{({W^{D}}_{1}C_{i})^2}*\sqrt{({W^{D}}_{1}C_{i})^2}}*100" title="Similarity(D1, D2) = \frac{\sum_{i = 0}^{n - 1 }{W^{D}}_{1}C_{i}*{W^{D}}_{2}C_{i}}{\sqrt{({W^{D}}_{1}C_{i})^2}*\sqrt{({W^{D}}_{1}C_{i})^2}}*100" /></a>
