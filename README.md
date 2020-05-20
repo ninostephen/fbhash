@@ -51,3 +51,14 @@ Docuement frequency is represented as d<sup>f</sup>Ch
 Where N is the number of documents the chunk was checked against for calculating the document frequency. For ease of demonstration, we are generating the N documents withing the code itself using the randStr() function on the top of the source code. In real life these documents would be fetched from a database. 
 
 NB : In our case we are generating a 1000 data objects using this function and using it to calculate the document frequency. This have a few problems. The results may vary with each run for the same input document. A weird looking edge case will occur as well because 3-4 extra documents were manually added to the set for testing purposes. This will cause a minor difference in the last similary percentage calculated. In one of the test runs which I made, both D1 and D2 were the same. Due to the above mentioned extra documents the similary score was 100.000000003%. This can be fixed by removing the extra datasets. I've left it there for ease of testing.
+
+- Using the values we have obtained so far we can calculate the Chunk Score. The chunk score is the final relavence of a chunk. Its calculated as follows : 
+#### Chunk Score W<sup>D</sup><sub>x</sub>Ch = Chwgt * id<sup>f</sup>Ch
+Where x is the document number (that is 1 and 2 in D1 and D2 respectively)
+
+- All the chunk scores are callectively used to represent the Digest of the Docuemt. The digest of the document is the chunk scores in vector form.
+
+#### digest(D1) = W<sup>D</sup><sub>1</sub>C<sub>0</sub>, W<sup>D</sup><sub>1</sub>C<sup>2</sup>, ..., W<sup>D</sup><sub>1</sub>C<sub>h-1</sub>
+
+
+- All these calculations were carried out to find the similarity between the documents D1 and D2. The equation mentioned below returns the similarity in the scale from 0 to 100 percentage. 
